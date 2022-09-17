@@ -1,5 +1,4 @@
-import RPi.GPIO as gpio
-
+from gpio import GPIO as gpio
 
 class CameraConveyorController:
     INPUT_1 = 17  # Input 1 for spinning direction
@@ -40,10 +39,6 @@ class CameraConveyorController:
         else:
             gpio.output(self.INPUT_1, False)
             gpio.output(self.INPUT_2, True)
-
-    # def run_with_speed(self, hz: int = 100, duty_cycle: int = 50):
-    #     pwm_value = gpio.PWM(self.ENA, hz)
-    #     pwm_value.start(duty_cycle)
 
     def stop(self):
         if self.pwm is not None:

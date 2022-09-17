@@ -1,5 +1,4 @@
-import RPi.GPIO as gpio
-
+from gpio import GPIO as gpio
 
 class SplittingConveyorController:
     DEFAULT_FREQUENCY = 20
@@ -42,10 +41,6 @@ class SplittingConveyorController:
         else:
             gpio.output(self.INPUT_1, False)
             gpio.output(self.INPUT_2, True)
-
-    # def run_with_speed(self, hz: int = 100, duty_cycle: int = 50):
-    #     pwm_value = gpio.PWM(self.ENA, hz)
-    #     pwm_value.start(duty_cycle)
 
     def stop(self):
         if self.pwm is not None:
